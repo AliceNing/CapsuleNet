@@ -134,7 +134,7 @@ class CapsNet(nn.Module):
             nn.Linear(1024, 784),
             nn.Sigmoid())
 
-    def forward(self, x):
+    def forward(self, x):#128,1,28,28
         out = self.relu(self.conv(x))
         out = self.primary_caps(out)
         out = self.digit_caps(out)
