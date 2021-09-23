@@ -137,15 +137,15 @@ class CapsNet(nn.Module):
     def forward(self, x):#128,1,28,28
         out = self.relu(self.conv(x))
         out = self.primary_caps(out)
-        out = self.digit_caps(out)
+        out = self.digit_caps(out) #128,10,16
 
         # Shape of logits: (batch_size, out_capsules)
-        logits = torch.norm(out, dim=-1)
-        pred = torch.eye(10).to(device).index_select(dim=0, index=torch.argmax(logits, dim=1))
+        logits = torch.norm(out, dim=-1) #128,10
+        pred = torch.eye(10).to(device).index_select(dim=0, index=torch.argmax(logits, dim=1)) #128,10  [0,0,……1,0]
 
         # Reconstruction
         batch_size = out.shape[0]
-        reconstruction = self.decoder((out * pred.unsqueeze(2)).contiguous().view(batch_size, -1))
+        reconstruction = self.decoder((out * pred.unsqueeze(2)).contiguous().view(batch_size, -1)) #128,784
 
         return logits, reconstruction
 
