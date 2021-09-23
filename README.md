@@ -6,8 +6,6 @@
 > Reference: https://github.com/Riroaki/CapsNet
 
 ### 胶囊网络
-主要想解决的问题是卷积只识别图片中的内容，而忽略不同内容之间的空间位置信息，比如只要一张图片中集齐了人的五官，不管它们的位置对不对，卷积就有很大的概率输出一个face的预测
-
 在手写识别问题中，使用的三层网络结构如下图：
 ![image](https://github.com/AliceNing/CapsuleNet/blob/main/images/caps_mnist.png)
 假如输入的图片大小为28*28，通道数为1。
