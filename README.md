@@ -12,7 +12,8 @@
 ![image](https://github.com/AliceNing/CapsuleNet/blob/main/images/caps_mnist.png)
 假如输入的图片大小为28*28，通道数为1。
 第一层是包含激活的二维卷积层，输出的数据维度是为256*20*20。
-第二层是PrimaryCaps胶囊层，使用二维卷积处理，并且将输出分成32组，每组8个通道，卷积核的大小为9，移动步长是2。输出的数据维度是32*8*6*6.
+第二层是PrimaryCaps胶囊层，使用二维卷积处理，并且将输出分成32组，每组8个通道，卷积核的大小为9，移动步长是2。使用squash激活函数来使短向量趋于0，长向量趋于1，最后输出的数据维度是32*8*6*6.
+![image](https://github.com/AliceNing/CapsuleNet/blob/main/images/squash.png)
 第三层是DigitCaps胶囊层，使用了论文提出的动态路由的方法，计算过程如下图，
 ![image](https://github.com/AliceNing/CapsuleNet/blob/main/images/Routing_algorithm.png)
 
