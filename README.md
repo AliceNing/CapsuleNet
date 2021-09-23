@@ -2,6 +2,8 @@
 > Reference:  https://arxiv.org/pdf/2103.01644v1.pdf
 >
 > Reference: https://arxiv.org/abs/1710.09829
+> 
+> Reference: https://github.com/Riroaki/CapsNet
 
 把每个位置的scence提取成不同的层，包含不同的特征，，同时加入一个包含agent的层，然后把这些扔到胶囊网络里进行学习，胶囊网络的结构类似于手写识别MNIST的框架
 
